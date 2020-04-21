@@ -1,0 +1,20 @@
+﻿@model IP_Project.Models.Event
+
+@{
+    ViewBag.Title = Model.title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel-body img-rounded text-center" style="background-color:white">
+    <div class="container">
+
+        <h2 class="btn-success img-rounded">@Model.title</h2>
+        
+
+        <img src="@Model.image" width="100%" class="img-rounded"><br>
+        <sub>@String.Format("{0:f}",Model.date)</sub><br><br><br>
+        <p style="font-size:x-large">
+            @Model.content
+        </p>
+    </div>
+</div>

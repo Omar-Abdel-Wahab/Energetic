@@ -1,0 +1,19 @@
+﻿@model IEnumerable<IP_Project.Models.Event>
+@{
+    ViewBag.Title = "Events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container panel-body img-rounded" style="background:#ffffff">
+    @{ foreach (var item in Model)
+        {
+            <div class="card col-lg-6 panel-body text-right">
+                <img src="@item.image" width="100%" class="card-img-top img-rounded" alt="..."><br>
+                <div class="card-body">
+                    <h4>@Html.ActionLink(item.title, "EventsSingle", "Events", new {id = item.id}, null)</h4>
+                    <sub class="col">@String.Format("{0:f}",item.date)</sub>
+                </div>
+            </div>
+
+        }
+    }
+</div>

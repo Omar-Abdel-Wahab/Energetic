@@ -1,0 +1,43 @@
+﻿@model IEnumerable<IP_Project.Models.Event>
+@{
+    ViewBag.Title = "Events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="panel-body img-rounded" style="background-color:white">
+    <h2>Events Page</h2>
+
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                Event Title
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+        @foreach (var ev in Model)
+        {
+            <tr>
+                <td>
+                    @ev.title
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditAnEvent", "Back", new { id = ev.id }, new { @class = "btn-warning col-sm-5 text-center img-rounded" })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "DeleteAnEvent", "Back", new { id = ev.id }, new { @class = "btn-danger col-sm-5 text-center img-rounded" })
+                </td>
+            </tr>
+
+        }
+    </table>
+
+    @Html.ActionLink("Create An Event", "CreateEvent", "Back")
+    <br />
+    @Html.ActionLink("Go To Admins", "Index", "Back")
+    <br />
+    @Html.ActionLink("Go To News", "News", "Back")
+    </div>

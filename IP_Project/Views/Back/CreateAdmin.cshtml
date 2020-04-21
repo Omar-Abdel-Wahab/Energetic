@@ -1,0 +1,29 @@
+﻿@model IP_Project.Models.Admin
+@{
+    ViewBag.Title = "CreateAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="panel-body img-rounded" style="background-color:white">
+    <h2>Create an Admin</h2>
+    @using (Html.BeginForm("CreateAnAdmin", "Back"))
+    {
+        <div class="form-group">
+            <label for="name">Name</label>
+            @Html.TextBoxFor(a => a.name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="role">Role</label>
+            @Html.TextBoxFor(a => a.role, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            @Html.TextBoxFor(a => a.email, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            @Html.TextBoxFor(a => a.password, new { @class = "form-control" })
+        </div>
+        @Html.HiddenFor(a => a.id)
+        <button type="submit" class="btn btn-primary">Save</button>
+    }
+    </div>

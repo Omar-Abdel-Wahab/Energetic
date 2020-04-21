@@ -1,0 +1,44 @@
+﻿@model IEnumerable<IP_Project.Models.News>
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel-body img-rounded" style="background-color:white">
+<h2>News Page</h2>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            News Title
+        </th>
+        <th>
+            Edit
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+    @foreach (var news in Model)
+    {
+        <tr>
+            <td>
+                @news.title
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditANews", "Back", new { id = news.id }, new { @class = "btn-warning col-sm-6 text-center img-rounded"})
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteANews", "Back", new { id = news.id }, new { @class = "btn-danger col-sm-6 text-center img-rounded" })
+            </td>
+        </tr>
+
+    }
+</table>
+
+@Html.ActionLink("Create A News", "CreateNews", "Back")
+<br />
+@Html.ActionLink("Go To Admins", "Index", "Back")
+<br />
+@Html.ActionLink("Go To Events", "Events", "Back")
+</div>

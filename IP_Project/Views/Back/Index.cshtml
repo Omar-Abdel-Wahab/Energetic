@@ -1,0 +1,43 @@
+﻿@model IEnumerable<IP_Project.Models.Admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel-body img-rounded" style="background-color:white">
+<h2>Admins Page</h2>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            Admin Name
+        </th>
+        <th>
+            Edit
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+     @foreach (var admin in Model) {
+         <tr>
+             <td>
+                 @admin.name
+             </td>
+             <td>
+                 @Html.ActionLink("Edit", "EditAnAdmin", "Back", new { id = admin.id }, new { @class = "btn-warning col-sm-2 text-center img-rounded" })
+             </td>
+             <td>
+                @Html.ActionLink("Delete", "DeleteAnAdmin", "Back", new { id = admin.id}, new { @class = "btn-danger col-sm-2 text-center img-rounded"})
+             </td>
+         </tr>
+
+     }
+</table>
+
+@Html.ActionLink("Create Admin", "CreateAdmin", "Back")
+<br />
+@Html.ActionLink("Go To News", "News", "Back")
+<br />
+@Html.ActionLink("Go To Events", "Events", "Back")
+</div>
